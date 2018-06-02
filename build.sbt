@@ -1,4 +1,4 @@
-name := "cats"
+name := "cats-exercices-meetup"
 version := "1.0"
 
 scalacOptions ++= Seq(
