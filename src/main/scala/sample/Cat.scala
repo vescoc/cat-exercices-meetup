@@ -28,4 +28,10 @@ object CatInstances {
       s"$name is a $age year-old $color cat"
     }
   }
+
+  implicit val catEq = Eq.instance[Cat] { (a, b) =>
+    a.name === b.name &&
+    a.age === b.age &&
+    a.color === b.color
+  }
 }
