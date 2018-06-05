@@ -7,9 +7,23 @@ object CatInstances {
     def format(a: Cat): String = {
       import PrintableInstances._
 
-      val name: String = Printable.format(a.name)
-      val age: String = Printable.format(a.age)
-      val color: String = Printable.format(a.color)
+      val name = Printable.format(a.name)
+      val age = Printable.format(a.age)
+      val color = Printable.format(a.color)
+
+      s"$name is a $age year-old $color cat"
+    }
+  }
+
+  import cats._
+  import cats.implicits._
+
+  implicit val catShow = new Show[Cat] {
+    def show(a: Cat): String = {
+
+      val name = a.name.show
+      val age = a.age.show
+      val color = a.color.show
 
       s"$name is a $age year-old $color cat"
     }
